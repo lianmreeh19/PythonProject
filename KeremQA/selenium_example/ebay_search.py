@@ -20,4 +20,6 @@ search_menu.clear()
 search_menu.send_keys("Shirt")
 search_menu.send_keys(Keys.ENTER)
 
+
+
 driver.close()
