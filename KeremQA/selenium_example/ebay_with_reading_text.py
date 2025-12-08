@@ -2,9 +2,7 @@ from selenium.webdriver.common.by import By
 from KeremQA.selenium_example.seleniumBaseKerem import seleniumBaseKerem
 
 base = seleniumBaseKerem()
-driver = base.selenium_start()
-
-driver.get("https://www.ebay.com/")
+driver = base.selenium_start_with_url("https://www.ebay.com/")
 advanced_button= driver.find_element(By.LINK_TEXT, "Advanced")
 advanced_text = advanced_button.text
 if advanced_text == "Advanced":
@@ -13,4 +11,4 @@ if advanced_text == "Advanced":
 else:
     print("it's not the right name of the button you test")
 
-driver.close()
+base.selenium_stop()
