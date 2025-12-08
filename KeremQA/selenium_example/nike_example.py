@@ -7,12 +7,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium import webdriver
 
-print("Test start")
-service = ChromeService(executable_path=ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+from KeremQA.selenium_example.seleniumBaseKerem import seleniumBaseKerem
 
-driver.maximize_window()
-driver.implicitly_wait(10)
+base = seleniumBaseKerem()
+driver = base.selenium_start()
 driver.get("https://www.nike.com/il/")
 driver.find_element(By.PARTIAL_LINK_TEXT, "Find").click()
 
