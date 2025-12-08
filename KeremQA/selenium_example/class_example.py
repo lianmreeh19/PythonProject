@@ -29,5 +29,4 @@ first_price_by_elements = prices[0]
 for price in prices:
     text_by_loop = price.text
     print(text_by_loop)
-price  = first_price.text
 base.selenium_stop()
