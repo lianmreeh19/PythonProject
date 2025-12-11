@@ -1,6 +1,8 @@
 import time
 import unittest
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+
 from KeremQA.selenium_example.seleniumBaseKerem import seleniumBaseKerem
 
 class pytest_swaglabs(unittest.TestCase):
@@ -34,3 +36,18 @@ class pytest_swaglabs(unittest.TestCase):
         time.sleep(2) # example of delay
         url = self.driver.current_url
         assert url == "https://www.saucedemo.com/", "URL should be: https://www.saucedemo.com/"
+
+    def test_drop_down_example(self):
+        print("Into test login")
+        user = self.driver.find_element(By.ID, "user-name")
+        password = self.driver.find_element(By.NAME, "password")
+        login_button = self.driver.find_element(By.ID, "login-button")
+
+        user.send_keys("standard_user")
+        password.send_keys("secret_sauce")
+        login_button.click()
+        sort = self.driver.find_element(By.CLASS_NAME, "product_sort_container")
+        sort_as_drop_down = Select(sort)
+        sort_as_drop_down.select_by_index(3)
+        print("test passed")
+
