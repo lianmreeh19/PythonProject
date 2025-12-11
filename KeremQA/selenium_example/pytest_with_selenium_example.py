@@ -1,6 +1,5 @@
 import time
 import unittest
-import pytest
 from selenium.webdriver.common.by import By
 from KeremQA.selenium_example.seleniumBaseKerem import seleniumBaseKerem
 
