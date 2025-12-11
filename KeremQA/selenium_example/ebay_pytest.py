@@ -19,11 +19,12 @@ class ebay_pytest(unittest.TestCase):
         print("Advanced button was clicked")
 
     def test_find_items(self):
+        item = "Lian"
         advanced_button = self.driver.find_element(By.LINK_TEXT,"Advanced").click()
         input_items = self.driver.find_element(By.ID,"_nkw")
-        input_items.send_keys("Lian")
+        input_items.send_keys(item)
         input_items.send_keys(Keys.ENTER)
         url = self.driver.current_url
-        assert "Lian" in url, "URL should contain the word 'Lian'"
-        print(f"Item was found successfully")
+        assert item in url, "URL should contain the word 'Lian'"
+        print("Item was found successfully")
 
