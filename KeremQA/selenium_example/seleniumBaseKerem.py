@@ -27,3 +27,20 @@ class seleniumBaseKerem():
     def selenium_stop(self):
         print("test stop")
         self.driver.close()
+
+    def click_on_element(self, element):
+        print("test click on element")
+        is_selected = element.is_selected()
+        if is_selected == False:
+            element.click()
+        after = element.is_selected()
+        return after
+
+    def click_and_assert_on_element(self, element):
+        print("test click on element")
+        is_selected = element.is_selected()
+        if is_selected == False:
+            element.click()
+        after = element.is_selected()
+        assert after == True , "After clicking on element, it didn't worked as expected"
+        return after
