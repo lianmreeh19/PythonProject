@@ -5,6 +5,7 @@ class WelcomePage():
         self.driver = driver
 
     def cookies_agree_button(self):
+        print("Cookies Agree")
         cookies_agree_button = self.driver.find_element(By.ID, "truste-consent-button")
         cookies_agree_button.click()
 
@@ -14,7 +15,7 @@ class WelcomePage():
         start_an_order_button.click()
 
     def click_on_home_page_button(self):
-        print("testing click_on_home_page_button")
+        print("testing click on home page button")
         rewards_button = self.driver.find_element(By.LINK_TEXT, "REWARDS")
         rewards_button.click()
         home_page_button = self.driver.find_element(By.CLASS_NAME, "block")
@@ -22,12 +23,13 @@ class WelcomePage():
         start_an_order_button = self.driver.find_element(By. PARTIAL_LINK_TEXT, "Start").text
         return start_an_order_button
 
-    def click_on_giftcard_button(self):
-        print("testing click_on_giftcard_button")
-        giftcard_button = self.driver.find_element(By. PARTIAL_LINK_TEXT, "GIFT")
-        giftcard_button.click()
+    def click_on_gift_card_button(self):
+        print("testing click on gift card button")
+        gift_card_button = self.driver.find_element(By. PARTIAL_LINK_TEXT, "GIFT")
+        gift_card_button.click()
 
     def check_exist_buttons(self):
+        print("checking exist buttons")
         buttons = self.driver.find_elements(By.CLASS_NAME, "sb-globalNav__desktopLink.inline-block.text-noUnderline.text-xxs.text-upper.text-bold")
         buttons_list = []
         for button in buttons:

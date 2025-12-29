@@ -1,8 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-
 from KeremQA.starbucks_final_project.globals import NEW_YORK_STORE
-
 
 class FindAStorePage():
     def __init__(self, driver):
