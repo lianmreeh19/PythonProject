@@ -24,65 +24,72 @@ class starbucksTests(unittest.TestCase):
         print("into start an order test")
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
         url = self.driver.current_url
-        assert url == "https://www.starbucks.com/menu", "The button Start An Order doesn't work as expected"
-        print("The button Start An Order worked as expected")
+        assert url == "https://www.starbucks.com/menu", "The button 'Start An Order' doesn't work as expected"
+        print("The button 'Start An Order' worked as expected")
 
     def test_end_to_end_drink_order(self):
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
         print("into drink order test")
-        text = self.product_order_page.choose_one_category_of_drinks(PROTEIN_CATEGORY)
-        assert text == "High Protein Lattes", "This text: High Protein Lattes, should appear after picking Protein Beverages drinks category"
-        print("picking Protein Beverages drinks category was made successfully")
+        category_text = self.product_order_page.choose_one_category_of_drinks(PROTEIN_CATEGORY)
+        assert category_text == "High Protein Lattes", "The text 'High Protein Lattes' should appear after picking 'Protein Beverages' drinks category"
+        print("Picking 'Protein Beverages' drinks category was made successfully")
 
         self.product_order_page.navigate_to_specific_drink_with_get()
-        print("the drink Iced Vanilla Protein was chosen successfully")
+        print("The drink 'Iced Vanilla Protein' was chosen successfully")
 
         self.product_order_page.add_to_order_button()
-        print("add to order button was clicked successfully")
+        print("'Add to order' button was clicked successfully")
 
         self.product_order_page.type_of_order()
-        print("just browsing button was clicked successfully")
+        print("'Just browsing' button was clicked successfully")
 
-        text2 = self.product_order_page.check_if_sign_in_page_appears()
-        assert text2 == "Sign in or create an account", "text2 should be: Sign in or create an account after clicking on add to order button"
-        print("the sign in or create an account page appeared successfully after clicking on add to order button")
+        page_text = self.product_order_page.check_if_sign_in_page_appears()
+        assert page_text == "Sign in or create an account", "page_text should be 'Sign in or create an account' after clicking on 'Add to order' button"
+        print("The 'sign in or create an account' page appeared successfully after clicking on add to order button")
 
     def test_get_drink_text(self):
+        print("into get drink text test")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
         self.product_order_page.choose_one_category_of_drinks(PROTEIN_CATEGORY)
-        text = self.product_order_page.choose_specific_drink()
-        assert text == "Iced Vanilla Protein Latte", "text2 should be: Iced Vanilla Protein Latte, should appear"
-        print("the drink Iced Vanilla Protein Latte is available")
+        drink_text = self.product_order_page.choose_specific_drink()
+        assert drink_text == "Iced Vanilla Protein Latte", "drink_text should be 'Iced Vanilla Protein Latte'"
+        print("The drink Iced Vanilla Protein Latte is available")
 
     def test_click_on_home_page_button(self):
-        self.welcome_page.cookies_agree_button()
         print("into click on home page button test")
-        text = self.welcome_page.click_on_home_page_button()
-        assert text == "Start an order", "text should be: Start an order, after clicking on home page button"
-        print("click on home page button was made successfully")
-
-    def test_available_giftcards(self):
         self.welcome_page.cookies_agree_button()
-        self.welcome_page.click_on_giftcard_button()
-        giftcards_amount = self.giftcard_page.get_giftcards_amount()
-        assert giftcards_amount > 0, "there's no giftcards available"
-        print("there is at least 1 available giftcard")
+        text = self.welcome_page.click_on_home_page_button()
+        assert text == "Start an order", "text should be 'Start an order' after clicking on home page button"
+        print("Click on home page button was made successfully")
+
+    def test_available_gift_cards(self):
+        print("into available gift cards test")
+        self.welcome_page.cookies_agree_button()
+        self.welcome_page.click_on_gift_card_button()
+        gift_cards_amount = self.giftcard_page.get_gift_cards_amount()
+        assert gift_cards_amount > 0, "There is no gift_cards available"
+        print("There is at least 1 available gift card")
 
     def test_existing_buttons_at_welcome_page(self):
+        print("into existing buttons at welcome page test")
         self.welcome_page.cookies_agree_button()
         expected_buttons = EXPECTED_BUTTONS_LIST
         buttons = self.welcome_page.check_exist_buttons()
-        assert expected_buttons == buttons, "the buttons: MENU, REWARDS, GIFT CARDS didn't found"
-        print("the buttons: MENU, REWARDS and GIFT CARDS was found successfully at the welcome page")
+        assert expected_buttons == buttons, "The buttons: MENU, REWARDS, GIFT CARDS didn't found at the welcome page"
+        print("The buttons: MENU, REWARDS and GIFT CARDS was found successfully at the welcome page")
 
-    def test_find_specif_store(self):
+    def test_find_specific_store(self):
+        print("into find specific store test")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_find_a_store_button()
         store_text = self.find_a_store_page.find_a_specific_store()
-        assert "New York" in store_text, "the result doesn't match search"
-        print("the result matches the search")
+        index1 = store_text.index("New")
+        index2 = store_text.index("York")+4
+        new_store_text = store_text[index1:index2]
+        assert new_store_text == "New York", "The result doesn't match search"
+        print(f"The result is: {new_store_text}, and it matches the search")
 
 
 
