@@ -15,6 +15,7 @@ class WelcomePageLocators(object):
 
     FIND_A_STORE_BUTTON_LOCATOR = By.PARTIAL_LINK_TEXT, FIND_A_STORE_BUTTON
 
+
 class ProductOrderPageLocators(object):
     DRINK_CATEGORY_TEXT_LOCATOR = By.CLASS_NAME, "sb-heading.text-md.pb3.text-bold"
 
@@ -28,15 +29,12 @@ class ProductOrderPageLocators(object):
 
     SIGN_IN_PAGE_LOCATOR = By.CSS_SELECTOR, "div[class='sb-contentColumn__inner']"
 
+
 class GiftCardPageLocators(object):
     GIFT_CARDS = By.CSS_SELECTOR, "a[data-product-type='Gift Card']"
+
 
 class FindAStorePageLocators(object):
     NEW_YORK_STORE_LOCATOR = By.NAME, "place"
 
     NEW_YORK_STORE_TEXT_LOCATOR = By.CLASS_NAME, "flex.justify-between.content___DiNrm"
-
-
-
-
-
