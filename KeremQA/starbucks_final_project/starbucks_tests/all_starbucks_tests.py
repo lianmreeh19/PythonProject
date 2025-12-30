@@ -7,6 +7,7 @@ from KeremQA.starbucks_final_project.starbucks_pages.gift_card_page import GiftC
 from KeremQA.starbucks_final_project.starbucks_pages.product_order_page import ProductOrderPage
 from KeremQA.starbucks_final_project.starbucks_pages.welcome_page import WelcomePage
 
+
 class starbucksTests(unittest.TestCase):
     def setUp(self):
         self.base = seleniumBaseStarbucks()
@@ -86,31 +87,7 @@ class starbucksTests(unittest.TestCase):
         self.welcome_page.click_on_find_a_store_button()
         store_text = self.find_a_store_page.find_a_specific_store()
         index1 = store_text.index("New")
-        index2 = store_text.index("York")+4
+        index2 = store_text.index("York") + 4
         new_store_text = store_text[index1:index2]
         assert new_store_text == "New York", "The result doesn't match search"
         print(f"The result is: {new_store_text}, and it matches the search")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
