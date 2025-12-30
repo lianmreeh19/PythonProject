@@ -43,4 +43,3 @@ class ProductOrderPage():
         print("checking if sign in page appears")
         sign_in_page = self.driver.find_element(*ProductOrderPageLocators.SIGN_IN_PAGE_LOCATOR).text
         return sign_in_page
-        
