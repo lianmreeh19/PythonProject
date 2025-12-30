@@ -3,7 +3,7 @@ from KeremQA.starbucks_final_project.globals import START_AN_ORDER_BUTTON, BASE_
     PROTEIN_CATEGORY
 from KeremQA.starbucks_final_project.seleniumBaseStarbucks import seleniumBaseStarbucks, seleniumBaseStarbucks
 from KeremQA.starbucks_final_project.starbucks_pages.find_a_store_page import FindAStorePage
-from KeremQA.starbucks_final_project.starbucks_pages.giftcard_page import GiftCardPage
+from KeremQA.starbucks_final_project.starbucks_pages.gift_card_page import GiftCardPage
 from KeremQA.starbucks_final_project.starbucks_pages.product_order_page import ProductOrderPage
 from KeremQA.starbucks_final_project.starbucks_pages.welcome_page import WelcomePage
 
@@ -13,7 +13,7 @@ class starbucksTests(unittest.TestCase):
         self.driver = self.base.selenium_start_with_url(BASE_URL)
         self.welcome_page = WelcomePage(self.driver)
         self.product_order_page = ProductOrderPage(self.driver)
-        self.giftcard_page = GiftCardPage(self.driver)
+        self.gift_card_page = GiftCardPage(self.driver)
         self.find_a_store_page = FindAStorePage(self.driver)
 
     def tearDown(self):
@@ -68,7 +68,7 @@ class starbucksTests(unittest.TestCase):
         print("into available gift cards test")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_gift_card_button()
-        gift_cards_amount = self.giftcard_page.get_gift_cards_amount()
+        gift_cards_amount = self.gift_card_page.get_gift_cards_amount()
         assert gift_cards_amount > 0, "There is no gift_cards available"
         print("There is at least 1 available gift card")
 
