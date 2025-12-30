@@ -8,12 +8,10 @@ class seleniumBaseStarbucks():
 
     def selenium_start_with_url(self, url):
         print("test start")
-        # service = ChromeService(executable_path=ChromeDriverManager().install())
         options = Options()
         options.add_argument("--incognito")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        # self.driver = webdriver.Chrome(service=service)
         self.driver = webdriver.Chrome(options=options)
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
