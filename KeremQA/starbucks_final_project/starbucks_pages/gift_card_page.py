@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from KeremQA.starbucks_final_project.locators import GiftCardPageLocators
+
 
 class GiftCardPage():
     def __init__(self, driver):
@@ -6,6 +8,6 @@ class GiftCardPage():
 
     def get_gift_cards_amount(self):
         print("Check GiftCards amount")
-        gift_cards = self.driver.find_elements(By. CSS_SELECTOR, "a[data-product-type='Gift Card'")
+        gift_cards = self.driver.find_elements(*GiftCardPageLocators.GIFT_CARDS)
         gift_cards_amount = len(gift_cards)
         return gift_cards_amount
