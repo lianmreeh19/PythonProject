@@ -1,5 +1,4 @@
 from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
 from KeremQA.starbucks_final_project.globals import NEW_YORK_STORE
 from KeremQA.starbucks_final_project.locators import FindAStorePageLocators
 

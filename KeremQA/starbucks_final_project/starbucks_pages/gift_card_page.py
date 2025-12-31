@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 from KeremQA.starbucks_final_project.locators import GiftCardPageLocators
 
 

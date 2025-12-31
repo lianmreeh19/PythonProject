@@ -19,5 +19,5 @@ class seleniumBaseStarbucks():
         return self.driver
 
     def selenium_stop(self):
-        print("test stop")
+        print("*******test stop*******")
         self.driver.close()

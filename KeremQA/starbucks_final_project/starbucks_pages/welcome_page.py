@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
-from KeremQA.starbucks_final_project.globals import REWARDS_BUTTON, START_AN_ORDER_BUTTON, HOME_PAGE_BUTTON, \
-    GIFT_CARD_BUTTON, FIND_A_STORE_BUTTON
+from KeremQA.starbucks_final_project.globals import GIFT_CARD_BUTTON
 from KeremQA.starbucks_final_project.locators import WelcomePageLocators
 
 class WelcomePage():

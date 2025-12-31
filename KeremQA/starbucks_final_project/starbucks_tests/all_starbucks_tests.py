@@ -22,7 +22,7 @@ class starbucksTests(unittest.TestCase):
 
     def test_click_on_start_an_order_button(self):
         self.welcome_page.cookies_agree_button()
-        print("into start an order test")
+        print("*****into start an order test*****")
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
         url = self.driver.current_url
         assert url == "https://www.starbucks.com/menu", "The button 'Start An Order' doesn't work as expected"
@@ -31,7 +31,7 @@ class starbucksTests(unittest.TestCase):
     def test_end_to_end_drink_order(self):
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
-        print("into drink order test")
+        print("*****into drink order test*****")
         category_text = self.product_order_page.choose_one_category_of_drinks(PROTEIN_CATEGORY)
         assert category_text == "High Protein Lattes", "The text 'High Protein Lattes' should appear after picking 'Protein Beverages' drinks category"
         print("Picking 'Protein Beverages' drinks category was made successfully")
@@ -50,7 +50,7 @@ class starbucksTests(unittest.TestCase):
         print("The 'sign in or create an account' page appeared successfully after clicking on add to order button")
 
     def test_get_drink_text(self):
-        print("into get drink text test")
+        print("*****into get drink text test*****")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_start_an_order_button(START_AN_ORDER_BUTTON)
         self.product_order_page.choose_one_category_of_drinks(PROTEIN_CATEGORY)
@@ -59,14 +59,14 @@ class starbucksTests(unittest.TestCase):
         print("The drink Iced Vanilla Protein Latte is available")
 
     def test_click_on_home_page_button(self):
-        print("into click on home page button test")
+        print("*****into click on home page button test*****")
         self.welcome_page.cookies_agree_button()
         text = self.welcome_page.click_on_home_page_button()
         assert text == "Start an order", "text should be 'Start an order' after clicking on home page button"
         print("Click on home page button was made successfully")
 
     def test_available_gift_cards(self):
-        print("into available gift cards test")
+        print("*****into available gift cards test*****")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_gift_card_button()
         gift_cards_amount = self.gift_card_page.get_gift_cards_amount()
@@ -74,7 +74,7 @@ class starbucksTests(unittest.TestCase):
         print("There is at least 1 available gift card")
 
     def test_existing_buttons_at_welcome_page(self):
-        print("into existing buttons at welcome page test")
+        print("*****into existing buttons at welcome page test*****")
         self.welcome_page.cookies_agree_button()
         expected_buttons = EXPECTED_BUTTONS_LIST
         buttons = self.welcome_page.check_exist_buttons()
@@ -82,7 +82,7 @@ class starbucksTests(unittest.TestCase):
         print("The buttons: MENU, REWARDS and GIFT CARDS was found successfully at the welcome page")
 
     def test_find_specific_store(self):
-        print("into find specific store test")
+        print("*****into find specific store test*****")
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_find_a_store_button()
         store_text = self.find_a_store_page.find_a_specific_store()
