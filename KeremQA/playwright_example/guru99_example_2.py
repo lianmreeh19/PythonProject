@@ -15,6 +15,7 @@ with sync_playwright() as p:
     flights.click()
 
     from_dropdown = page.locator("[name='fromPort']")
-    location = from_dropdown.select_option("Paris")
-    print(location)
+    location1 = from_dropdown.select_option("Paris")
+    location2 = from_dropdown.select_option(index=1)
+    print(f"location1: {location1}, location2: {location2}")
     print ("test end")
