@@ -16,5 +16,4 @@ with sync_playwright() as p:
     prices = page.query_selector_all('[class="inventory_item_price"]')
     for price in prices:
         print (price.text_content())
-        print (price.inner_text())
     browser.close()
