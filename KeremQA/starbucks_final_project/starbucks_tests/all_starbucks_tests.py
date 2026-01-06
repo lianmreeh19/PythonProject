@@ -7,7 +7,6 @@ from KeremQA.starbucks_final_project.starbucks_pages.gift_card_page import GiftC
 from KeremQA.starbucks_final_project.starbucks_pages.product_order_page import ProductOrderPage
 from KeremQA.starbucks_final_project.starbucks_pages.welcome_page import WelcomePage
 
-
 class starbucksTests(unittest.TestCase):
     def setUp(self):
         self.base = seleniumBaseStarbucks()
@@ -70,7 +69,7 @@ class starbucksTests(unittest.TestCase):
         self.welcome_page.cookies_agree_button()
         self.welcome_page.click_on_gift_card_button()
         gift_cards_amount = self.gift_card_page.get_gift_cards_amount()
-        assert gift_cards_amount > 0, "There is no gift_cards available"
+        assert gift_cards_amount > 0, "There is no gift cards available"
         print("There is at least 1 available gift card")
 
     def test_existing_buttons_at_welcome_page(self):
